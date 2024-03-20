@@ -1,6 +1,7 @@
 package com.karolina.jetpack.newsapp.presentation.onboarding
 
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -13,11 +14,14 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.karolina.jetpack.newsapp.presentation.Dimens.MediumPadding2
 import com.karolina.jetpack.newsapp.presentation.Dimens.PageIndicatorWidth
 import com.karolina.jetpack.newsapp.presentation.common.NewsButton
@@ -28,7 +32,17 @@ import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun OnBoardingScreen() {
+fun OnBoardingScreen(
+    onEvent:(OnBoardingEvent) -> Unit
+) {
+    val isSystemInDarkMode = isSystemInDarkTheme()
+    val systemUiColor = rememberSystemUiController()
+    SideEffect {
+        systemUiColor.setSystemBarsColor(
+            color = Color.Black.copy(0.1f),
+            darkIcons = isSystemInDarkMode
+        )
+    }
     Column(modifier = Modifier.fillMaxSize()) {
 
         //Zapisywanie stanu strony, PagerState służy do manipulowania i zapisywania na której stronie jesteśmy
@@ -88,8 +102,8 @@ fun OnBoardingScreen() {
                 NewsButton(text = buttonState.value[1],
                     onClick = {
                         scope.launch {
-                            if (pagerState.currentPage == 3) {
-                                //TODO: Navigate to HomeScreen
+                            if (pagerState.currentPage == 2) {
+                                onEvent(OnBoardingEvent.SaveAppEntry)
                             } else {
                                 pagerState.animateScrollToPage(
                                     page = pagerState.currentPage + 1

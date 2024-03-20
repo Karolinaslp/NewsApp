@@ -1,4 +1,4 @@
-package com.karolina.jetpack.newsapp.domain.usecases
+package com.karolina.jetpack.newsapp.domain.usecases.app_entry
 
 import com.karolina.jetpack.newsapp.domain.manager.LocalUserManager
 
