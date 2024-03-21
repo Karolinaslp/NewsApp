@@ -3,7 +3,6 @@ package com.karolina.jetpack.newsapp.data.remote
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.karolina.jetpack.newsapp.domain.model.Article
-import com.karolina.jetpack.newsapp.util.Constants.API_KEY
 
 class NewsPagingSource(
     private val newsApi: NewsApi,
