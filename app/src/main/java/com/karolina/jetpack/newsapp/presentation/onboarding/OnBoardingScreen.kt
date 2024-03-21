@@ -21,9 +21,9 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.karolina.jetpack.newsapp.presentation.Dimens.MediumPadding2
-import com.karolina.jetpack.newsapp.presentation.Dimens.PageIndicatorWidth
 import com.karolina.jetpack.newsapp.presentation.common.NewsButton
 import com.karolina.jetpack.newsapp.presentation.common.NewsTextButton
 import com.karolina.jetpack.newsapp.presentation.onboarding.components.OnBoardingPage
@@ -33,7 +33,7 @@ import kotlinx.coroutines.launch
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun OnBoardingScreen(
-    onEvent:(OnBoardingEvent) -> Unit
+    onEvent: (OnBoardingEvent) -> Unit
 ) {
     val isSystemInDarkMode = isSystemInDarkTheme()
     val systemUiColor = rememberSystemUiController()
@@ -44,21 +44,15 @@ fun OnBoardingScreen(
         )
     }
     Column(modifier = Modifier.fillMaxSize()) {
-
-        //Zapisywanie stanu strony, PagerState służy do manipulowania i zapisywania na której stronie jesteśmy
         val pagerState = rememberPagerState(initialPage = 0) {
             pages.size
         }
-
-        val buttonState = remember {
-            //Zapisuje i ustawia stan przycisku(na pierwszej stronie nie chcemy "Back"
-            // a na ostatniej nie chcemy "Next" ale chcemy mieć "Get Started"
-            //Stan przycisku jest zależny od PagerState
+        val buttonsState = remember {
             derivedStateOf {
                 when (pagerState.currentPage) {
                     0 -> listOf("", "Next")
                     1 -> listOf("Back", "Next")
-                    2 -> listOf("Back", "get Started")
+                    2 -> listOf("Back", "Get Started")
                     else -> listOf("", "")
                 }
             }
@@ -66,40 +60,39 @@ fun OnBoardingScreen(
         HorizontalPager(state = pagerState) { index ->
             OnBoardingPage(page = pages[index])
         }
-
         Spacer(modifier = Modifier.weight(1f))
-
         Row(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = MediumPadding2)
-                //oblicza odległąć od dolnej belki i dodaje do paddingu
                 .navigationBarsPadding(),
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
             PagerIndicator(
-                modifier = Modifier.width(PageIndicatorWidth),
+                modifier = Modifier.width(52.dp),
                 pagesSize = pages.size,
                 selectedPage = pagerState.currentPage
             )
 
             Row(verticalAlignment = Alignment.CenterVertically) {
-
                 val scope = rememberCoroutineScope()
-
                 //Hide the button when the first element of the list is empty
-                if (buttonState.value[0].isNotEmpty()) {
+                if (buttonsState.value[0].isNotEmpty()) {
                     NewsTextButton(
-                        text = buttonState.value[0],
+                        text = buttonsState.value[0],
                         onClick = {
                             scope.launch {
-                                pagerState.animateScrollToPage(page = pagerState.currentPage - 1)
+                                pagerState.animateScrollToPage(
+                                    page = pagerState.currentPage - 1
+                                )
                             }
+
                         }
                     )
                 }
-                NewsButton(text = buttonState.value[1],
+                NewsButton(
+                    text = buttonsState.value[1],
                     onClick = {
                         scope.launch {
                             if (pagerState.currentPage == 2) {
@@ -117,3 +110,4 @@ fun OnBoardingScreen(
         Spacer(modifier = Modifier.weight(0.5f))
     }
 }
+

@@ -4,9 +4,11 @@ import com.karolina.jetpack.newsapp.domain.manager.LocalUserManager
 import kotlinx.coroutines.flow.Flow
 
 class ReadAppEntry(
-    private val localUserManager: LocalUserManager
+    private val localUserManger: LocalUserManager
 ) {
-    suspend operator fun invoke(): Flow<Boolean> {
-        return localUserManager.readAppEntry()
+
+    operator fun invoke(): Flow<Boolean> {
+        return localUserManger.readAppEntry()
     }
+
 }

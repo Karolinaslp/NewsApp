@@ -11,17 +11,19 @@ import javax.inject.Inject
 class OnBoardingViewModel @Inject constructor(
     private val appEntryUseCases: AppEntryUseCases
 ) : ViewModel() {
-    fun onEvent(event: OnBoardingEvent) {
-        when (event) {
-            is OnBoardingEvent.SaveAppEntry -> {
-                saveAppEntry()
+
+    fun onEvent(event: OnBoardingEvent){
+        when(event){
+            is OnBoardingEvent.SaveAppEntry ->{
+                saveUserEntry()
             }
         }
     }
 
-    private fun saveAppEntry() {
+    private fun saveUserEntry() {
         viewModelScope.launch {
-            appEntryUseCases.saveAppEntry
+            appEntryUseCases.saveAppEntry()
         }
     }
+
 }
