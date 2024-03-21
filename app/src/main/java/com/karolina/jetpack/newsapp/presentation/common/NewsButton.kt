@@ -1,5 +1,4 @@
 package com.karolina.jetpack.newsapp.presentation.common
-
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -15,7 +14,7 @@ import com.karolina.jetpack.newsapp.ui.theme.WhiteGray
 @Composable
 fun NewsButton(
     text: String,
-    onClick: () -> Unit
+    onClick: () -> Unit,
 ) {
 
     Button(
@@ -28,7 +27,8 @@ fun NewsButton(
     ) {
         Text(
             text = text,
-            style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.SemiBold)
+            style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.SemiBold),
+            color = Color.White
         )
     }
 }
@@ -36,7 +36,7 @@ fun NewsButton(
 @Composable
 fun NewsTextButton(
     text: String,
-    onClick: () -> Unit
+    onClick: () -> Unit,
 ) {
     TextButton(onClick = onClick) {
         Text(

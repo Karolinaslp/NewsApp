@@ -3,9 +3,11 @@ package com.karolina.jetpack.newsapp.domain.usecases.app_entry
 import com.karolina.jetpack.newsapp.domain.manager.LocalUserManager
 
 class SaveAppEntry(
-    private val localUserManager: LocalUserManager
+    private val localUserManger: LocalUserManager
 ) {
-    suspend operator fun invoke() {
-        localUserManager.saveAppEntry()
+
+    suspend operator fun invoke(){
+        localUserManger.saveAppEntry()
     }
+
 }
