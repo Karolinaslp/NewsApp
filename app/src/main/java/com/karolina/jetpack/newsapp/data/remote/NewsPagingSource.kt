@@ -6,13 +6,15 @@ import com.karolina.jetpack.newsapp.domain.model.Article
 
 class NewsPagingSource(
     private val newsApi: NewsApi,
-    private val sources: String
+    private val sources: String,
+    private val country: String,
+    private val category: String
 ) : PagingSource<Int, Article>() {
     private var totalNewsCount = 0
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Article> {
         val page = params.key ?: 1
         return try {
-            val newsResponse = newsApi.getNews(sources = sources, page = page)
+            val newsResponse = newsApi.getNews(sources = sources, page = page, country = country, category = category)
             totalNewsCount += newsResponse.articles.size
             val articles = newsResponse.articles.distinctBy { it.title }
             LoadResult.Page(

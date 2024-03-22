@@ -6,10 +6,12 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface NewsApi {
-    @GET("everything")
+    @GET("top-headlines")
     suspend fun getNews(
         @Query("page") page: Int,
         @Query("sources") sources: String,
+        @Query("country") country: String,
+        @Query("category") category: String,
         @Query("apiKey") apiKey: String = API_KEY
     ): NewsResponse
 }
