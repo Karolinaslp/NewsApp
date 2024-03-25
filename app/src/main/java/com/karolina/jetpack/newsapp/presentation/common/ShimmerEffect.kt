@@ -38,7 +38,6 @@ import coil.request.ImageRequest
 import com.karolina.jetpack.newsapp.presentation.Dimens
 import com.karolina.jetpack.newsapp.presentation.Dimens.MediumPadding1
 import com.karolina.jetpack.newsapp.ui.theme.NewsAppTheme
-import com.loc.newsapp.R
 
 
 fun Modifier.shimmerEffect() = composed {

@@ -1,7 +1,5 @@
 package com.karolina.jetpack.newsapp.presentation.common
 
-import android.content.DialogInterface.OnClickListener
-import android.content.res.Configuration
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -34,7 +32,6 @@ import com.karolina.jetpack.newsapp.presentation.Dimens.ExtraSmallPadding
 import com.karolina.jetpack.newsapp.presentation.Dimens.ExtraSmallPadding2
 import com.karolina.jetpack.newsapp.presentation.Dimens.SmallIconSize
 import com.karolina.jetpack.newsapp.ui.theme.NewsAppTheme
-import com.loc.newsapp.R
 
 @Composable
 fun ArticleCard(

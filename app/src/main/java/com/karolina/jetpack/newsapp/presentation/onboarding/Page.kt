@@ -1,7 +1,6 @@
 package com.karolina.jetpack.newsapp.presentation.onboarding
 
 import androidx.annotation.DrawableRes
-import com.loc.newsapp.R
 
 class Page(
     val title: String,

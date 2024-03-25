@@ -21,7 +21,7 @@ import com.karolina.jetpack.newsapp.presentation.Dimens.MediumPadding1
 import com.karolina.jetpack.newsapp.presentation.Dimens.MediumPadding2
 import com.karolina.jetpack.newsapp.presentation.onboarding.Page
 import com.karolina.jetpack.newsapp.ui.theme.NewsAppTheme
-import com.loc.newsapp.R
+
 
 @Composable
 fun OnBoardingPage(
