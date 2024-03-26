@@ -1,6 +1,5 @@
 package com.karolina.jetpack.newsapp.presentation.home
 
-import androidx.annotation.IntegerRes
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.basicMarquee
@@ -17,15 +16,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
-import androidx.paging.compose.LazyPagingItems
-import com.karolina.jetpack.newsapp.domain.model.Article
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.paging.compose.LazyPagingItems
 import com.karolina.jetpack.newsapp.R
+import com.karolina.jetpack.newsapp.domain.model.Article
 import com.karolina.jetpack.newsapp.presentation.Dimens.MediumPadding1
 import com.karolina.jetpack.newsapp.presentation.common.ArticlesList
 import com.karolina.jetpack.newsapp.presentation.common.SearchBar
