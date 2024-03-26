@@ -27,6 +27,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.karolina.jetpack.newsapp.R
 import com.karolina.jetpack.newsapp.presentation.Dimens.IconSize
 import com.karolina.jetpack.newsapp.ui.theme.NewsAppTheme
 

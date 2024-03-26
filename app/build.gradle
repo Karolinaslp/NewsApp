@@ -7,11 +7,11 @@ plugins {
 }
 
 android {
-    namespace 'com.loc.newsapp'
+    namespace 'com.karolina.jetpack.newsapp'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.loc.newsapp"
+        applicationId "com.karolina.jetpack.newsapp"
         minSdk 26
         targetSdk 33
         versionCode 2

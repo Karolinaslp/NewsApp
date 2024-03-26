@@ -17,6 +17,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
@@ -25,6 +26,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
+import com.karolina.jetpack.newsapp.R
 import com.karolina.jetpack.newsapp.domain.model.Article
 import com.karolina.jetpack.newsapp.domain.model.Source
 import com.karolina.jetpack.newsapp.presentation.Dimens.ArticleCardSize
@@ -41,13 +43,16 @@ fun ArticleCard(
 ) {
     val context = LocalContext.current
 
-    Row(modifier = Modifier.clickable { onClick() }) {
+    Row(
+        modifier = modifier.clickable { onClick.invoke() },
+        ) {
         AsyncImage(
             modifier = Modifier
                 .size(ArticleCardSize)
                 .clip(MaterialTheme.shapes.medium),
             model = ImageRequest.Builder(context).data(article.urlToImage).build(),
-            contentDescription = null
+            contentDescription = null,
+            contentScale = ContentScale.Crop
         )
         Column(
             verticalArrangement = Arrangement.SpaceAround,
@@ -79,7 +84,7 @@ fun ArticleCard(
                 )
                 Spacer(modifier = Modifier.width(ExtraSmallPadding2))
                 Text(
-                    text = article.publishedAt,
+                    text = article.publishedAt.substringBefore("T"),
                     style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.Bold),
                     color = colorResource(id = R.color.body)
                 )

@@ -32,6 +32,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.paging.LoadState
+import com.karolina.jetpack.newsapp.R
 import java.lang.Error
 import java.net.ConnectException
 import java.net.SocketTimeoutException

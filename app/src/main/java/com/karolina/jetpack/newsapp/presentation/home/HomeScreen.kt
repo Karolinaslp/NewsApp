@@ -25,6 +25,7 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.karolina.jetpack.newsapp.R
 import com.karolina.jetpack.newsapp.presentation.Dimens.MediumPadding1
 import com.karolina.jetpack.newsapp.presentation.common.ArticlesList
 import com.karolina.jetpack.newsapp.presentation.common.SearchBar
@@ -65,6 +66,7 @@ fun HomeScreen(articles: LazyPagingItems<Article>, navigate: (String) -> Unit) {
         Spacer(modifier = Modifier.height(MediumPadding1))
 
         SearchBar(
+            modifier = Modifier.padding(horizontal = MediumPadding1),
             text = "",
             readOnly = true,
             onValueChange = {},

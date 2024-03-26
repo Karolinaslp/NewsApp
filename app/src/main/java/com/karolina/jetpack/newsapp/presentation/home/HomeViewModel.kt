@@ -10,8 +10,8 @@ import javax.inject.Inject
 @HiltViewModel
 class HomeViewModel @Inject constructor(
     private val newsUseCases: NewsUseCases
-): ViewModel() {
+) : ViewModel() {
     val news = newsUseCases.getNews(
-        sources = listOf("google-news")
+        sources = listOf("bbc-news", "abc-news", "google-news")
     ).cachedIn(viewModelScope)
 }
