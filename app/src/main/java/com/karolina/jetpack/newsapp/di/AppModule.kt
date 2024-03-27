@@ -11,6 +11,7 @@ import com.karolina.jetpack.newsapp.domain.usecases.app_entry.ReadAppEntry
 import com.karolina.jetpack.newsapp.domain.usecases.app_entry.SaveAppEntry
 import com.karolina.jetpack.newsapp.domain.usecases.news.GetNews
 import com.karolina.jetpack.newsapp.domain.usecases.news.NewsUseCases
+import com.karolina.jetpack.newsapp.domain.usecases.news.SearchNews
 import com.karolina.jetpack.newsapp.util.Constants.BASE_URL
 import dagger.Module
 import dagger.Provides
@@ -59,8 +60,11 @@ object AppModule {
     @Provides
     @Singleton
     fun provideNewsUseCases(
-        newRepository: NewsRepository
+        newsRepository: NewsRepository
     ): NewsUseCases {
-        return NewsUseCases(getNews = GetNews(newRepository))
+        return NewsUseCases(
+            getNews = GetNews(newsRepository),
+            searchNews = SearchNews(newsRepository)
+        )
     }
 }
