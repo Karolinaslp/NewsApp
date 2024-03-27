@@ -1,8 +1,6 @@
 package com.karolina.jetpack.newsapp.presentation.details
 
-import android.annotation.SuppressLint
 import android.content.Intent
-import android.media.ImageReader
 import android.net.Uri
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -13,7 +11,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.MediumTopAppBar
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -31,7 +28,6 @@ import com.karolina.jetpack.newsapp.presentation.Dimens.ArticleImageHeight
 import com.karolina.jetpack.newsapp.presentation.Dimens.MediumPadding1
 import com.karolina.jetpack.newsapp.presentation.details.components.DetailsTopBar
 import com.karolina.jetpack.newsapp.ui.theme.NewsAppTheme
-import java.nio.file.WatchEvent
 
 @Composable
 fun DetailsScreen(
