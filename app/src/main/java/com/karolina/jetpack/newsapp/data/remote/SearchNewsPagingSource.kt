@@ -34,7 +34,7 @@ class SearchNewsPagingSource(
     override fun getRefreshKey(state: PagingState<Int, Article>): Int? {
         return state.anchorPosition?.let { anchorPosition ->
             val page = state.closestPageToPosition(anchorPosition)
-            page?.prevKey?.minus(1) ?: page?.nextKey?.plus(1)
+            page?.nextKey?.minus(1) ?: page?.prevKey?.plus(1)
         }
     }
 }

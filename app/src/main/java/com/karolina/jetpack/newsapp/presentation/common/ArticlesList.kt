@@ -17,6 +17,24 @@ import com.karolina.jetpack.newsapp.presentation.Dimens.MediumPadding1
 @Composable
 fun ArticlesList(
     modifier: Modifier = Modifier,
+    articles: List<Article>,
+    onClick: (Article) -> Unit
+) {
+    LazyColumn(
+        modifier = modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.spacedBy(MediumPadding1),
+        contentPadding = PaddingValues(all = ExtraSmallPadding2)
+    ) {
+        items(count = articles.size) {
+            val article = articles[it]
+                ArticleCard(article = article, onClick = { onClick(article) })
+        }
+    }
+}
+
+@Composable
+fun ArticlesList(
+    modifier: Modifier = Modifier,
     articles: LazyPagingItems<Article>,
     onClick: (Article) -> Unit
 ) {
@@ -29,7 +47,7 @@ fun ArticlesList(
             contentPadding = PaddingValues(all = ExtraSmallPadding2)
         ) {
             items(count = articles.itemCount) {
-                articles[it]?.let {article ->
+                articles[it]?.let { article ->
                     ArticleCard(article = article, onClick = { onClick(article) })
                 }
             }

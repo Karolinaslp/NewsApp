@@ -6,6 +6,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigation
 import androidx.navigation.compose.rememberNavController
+import com.karolina.jetpack.newsapp.presentation.bookmark.BookmarkScreen
+import com.karolina.jetpack.newsapp.presentation.bookmark.BookmarkViewModel
 import com.karolina.jetpack.newsapp.presentation.onboarding.OnBoardingScreen
 import com.karolina.jetpack.newsapp.presentation.onboarding.OnBoardingViewModel
 import com.karolina.jetpack.newsapp.presentation.search.SearchScreen
@@ -34,11 +36,8 @@ fun NavGraph(
             startDestination = Route.NewsNavigatorScreen.route
         ) {
             composable(route = Route.NewsNavigatorScreen.route) {
-                val viewModel: SearchViewModel = hiltViewModel()
-                SearchScreen(
-                    state = viewModel.state.value,
-                    event = viewModel::onEvent,
-                    navigate = {})
+                val viewModel: BookmarkViewModel = hiltViewModel()
+                BookmarkScreen(state = viewModel.state.value, navigateToDetails = {})
             }
         }
     }
