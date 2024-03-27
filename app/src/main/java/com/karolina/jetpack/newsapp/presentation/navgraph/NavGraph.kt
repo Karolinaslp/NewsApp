@@ -10,8 +10,6 @@ import com.karolina.jetpack.newsapp.presentation.bookmark.BookmarkScreen
 import com.karolina.jetpack.newsapp.presentation.bookmark.BookmarkViewModel
 import com.karolina.jetpack.newsapp.presentation.onboarding.OnBoardingScreen
 import com.karolina.jetpack.newsapp.presentation.onboarding.OnBoardingViewModel
-import com.karolina.jetpack.newsapp.presentation.search.SearchScreen
-import com.karolina.jetpack.newsapp.presentation.search.SearchViewModel
 
 @Composable
 fun NavGraph(

@@ -27,7 +27,6 @@ import com.karolina.jetpack.newsapp.domain.model.Article
 import com.karolina.jetpack.newsapp.presentation.Dimens.MediumPadding1
 import com.karolina.jetpack.newsapp.presentation.common.ArticlesList
 import com.karolina.jetpack.newsapp.presentation.common.SearchBar
-import com.karolina.jetpack.newsapp.presentation.navgraph.Route
 
 
 @OptIn(ExperimentalFoundationApi::class)
