@@ -8,6 +8,7 @@ import androidx.navigation.compose.navigation
 import androidx.navigation.compose.rememberNavController
 import com.karolina.jetpack.newsapp.presentation.bookmark.BookmarkScreen
 import com.karolina.jetpack.newsapp.presentation.bookmark.BookmarkViewModel
+import com.karolina.jetpack.newsapp.presentation.news_navigator.NewsNavigator
 import com.karolina.jetpack.newsapp.presentation.onboarding.OnBoardingScreen
 import com.karolina.jetpack.newsapp.presentation.onboarding.OnBoardingViewModel
 
@@ -34,8 +35,7 @@ fun NavGraph(
             startDestination = Route.NewsNavigatorScreen.route
         ) {
             composable(route = Route.NewsNavigatorScreen.route) {
-                val viewModel: BookmarkViewModel = hiltViewModel()
-                BookmarkScreen(state = viewModel.state.value, navigateToDetails = {})
+               NewsNavigator()
             }
         }
     }
