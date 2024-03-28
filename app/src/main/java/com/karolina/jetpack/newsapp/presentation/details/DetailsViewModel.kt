@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.karolina.jetpack.newsapp.domain.model.Article
 import com.karolina.jetpack.newsapp.domain.usecases.news.NewsUseCases
-import com.karolina.jetpack.newsapp.domain.usecases.news.UpsertArticle
 import com.karolina.jetpack.newsapp.presentation.details.DetailsEvent.UpsertDeleteArticle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch

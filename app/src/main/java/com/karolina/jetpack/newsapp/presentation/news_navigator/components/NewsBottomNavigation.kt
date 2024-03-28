@@ -1,6 +1,5 @@
 package com.karolina.jetpack.newsapp.presentation.news_navigator.components
 
-import android.content.res.Configuration
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.layout.Column

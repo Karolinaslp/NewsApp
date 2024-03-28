@@ -6,8 +6,6 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigation
 import androidx.navigation.compose.rememberNavController
-import com.karolina.jetpack.newsapp.presentation.bookmark.BookmarkScreen
-import com.karolina.jetpack.newsapp.presentation.bookmark.BookmarkViewModel
 import com.karolina.jetpack.newsapp.presentation.news_navigator.NewsNavigator
 import com.karolina.jetpack.newsapp.presentation.onboarding.OnBoardingScreen
 import com.karolina.jetpack.newsapp.presentation.onboarding.OnBoardingViewModel
