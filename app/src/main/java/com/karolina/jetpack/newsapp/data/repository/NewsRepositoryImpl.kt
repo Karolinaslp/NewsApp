@@ -10,7 +10,6 @@ import com.karolina.jetpack.newsapp.data.remote.SearchNewsPagingSource
 import com.karolina.jetpack.newsapp.domain.model.Article
 import com.karolina.jetpack.newsapp.domain.repository.NewsRepository
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.onEach
 
 class NewsRepositoryImpl(
     private val newsApi: NewsApi,
