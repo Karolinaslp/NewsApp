@@ -2,10 +2,11 @@ package com.karolina.jetpack.newsapp.domain.usecases.news
 
 import com.karolina.jetpack.newsapp.data.local.NewsDao
 import com.karolina.jetpack.newsapp.domain.model.Article
+import com.karolina.jetpack.newsapp.domain.repository.NewsRepository
 import kotlinx.coroutines.flow.Flow
 
-class SelectArticles (private val newsDao: NewsDao) {
+class SelectArticles (private val newsRepository: NewsRepository) {
     operator fun invoke(): Flow<List<Article>> {
-        return newsDao.getArticles()
+        return newsRepository.selectArticles()
     }
 }
