@@ -3,8 +3,6 @@ package com.karolina.jetpack.newsapp.presentation.common
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
-import android.os.Message
-import android.view.animation.AlphaAnimation
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -18,14 +16,12 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Color.Companion.DarkGray
 import androidx.compose.ui.graphics.Color.Companion.LightGray
 import androidx.compose.ui.res.painterResource
@@ -33,7 +29,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.paging.LoadState
 import com.karolina.jetpack.newsapp.R
-import java.lang.Error
 import java.net.ConnectException
 import java.net.SocketTimeoutException
 
@@ -46,7 +41,7 @@ fun EmptyScreen(
     }
 
     var icon by remember {
-        mutableStateOf(R.drawable.ic_network_error)
+        mutableIntStateOf(R.drawable.ic_network_error)
     }
 
     if (error == null) {
@@ -60,7 +55,8 @@ fun EmptyScreen(
 
     val alphaAnimation by animateFloatAsState(
         targetValue = if (startAnimation) 0.3f else 0f,
-        animationSpec = tween(durationMillis = 1000)
+        animationSpec = tween(durationMillis = 1500),
+        label = ""
     )
 
     LaunchedEffect(key1 = true) {
